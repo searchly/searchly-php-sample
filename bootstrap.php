@@ -10,7 +10,7 @@ $params['hosts'] = array (
 
 $params['connectionParams']['auth'] = array(
     'site',
-    '585b58b54f23718776718e79662c497f',
+    'key',
     'Basic' 
 );
 $client = new Elasticsearch\Client($params);
