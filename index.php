@@ -21,8 +21,7 @@
 
             <p>Click Create Documents at top left then 2 sample documents will be created.</p>
 
-            <p>Now you can type 'Laptop', '*sus' , 'Asus' or 'Dell' to searchbox at top of right corner and hit
-                enter for sample search results.</p>
+            <p>To test search; enter "Laptop", "Asus" or "Dell" to search box at top right and hit enter.</p>
         </div>
     </div>
 </div>
