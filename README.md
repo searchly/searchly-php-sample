@@ -16,12 +16,4 @@ To test search; enter "starcraft", "warcraft" or "*" to search box at top right 
 
 ## Local Setup
 
-* Change connection string at search_page.php
-    * from
-        ```
-            'url' => 'https://site:key@xyz.searchly.com',
-        ```
-    * to
-        ```
-            'url' => 'http://localhost:9200/',
-        ```
+* Comment out $client = new Elasticsearch\Client();

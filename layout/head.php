@@ -28,7 +28,7 @@
 
                 <div style="margin-left: 2em" class="nav pull-right">
                     <form action="search_page.php" class="navbar-search pull-left" method="GET">
-                        <input class="search-query span2" id="q" name="q" placeholder=
+                        <input class="search-query" id="q" name="q" placeholder=
                                 "search" type="text" />
                     </form>
                 </div>

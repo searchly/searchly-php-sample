@@ -10,9 +10,14 @@ $params['hosts'] = array (
 
 $params['connectionParams']['auth'] = array(
     'site',
-    'key',
+    '585b58b54f23718776718e79662c497f',
     'Basic' 
 );
 $client = new Elasticsearch\Client($params);
+
+
+// Comment out for localhost 
+//$client = new Elasticsearch\Client();
+
 
 ?>

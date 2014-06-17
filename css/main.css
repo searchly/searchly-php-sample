@@ -2,3 +2,7 @@ body
 {
     padding-top: 60px;
 }
+
+input {
+	height: 28px!important;
+}
