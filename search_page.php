@@ -15,10 +15,20 @@ $aggFilterField = $_GET['agg_field'];
 $searchParams['index'] = $index;
 $searchParams['type']  = $type;
 
-$searchParams['body']['query']['filtered']['query']['match']['title'] = $query;
+$searchParams = [
+  'body' => [
+        'query' => [
+            'bool' => [
+                'should' => [
+                    [ 'match' => [ 'title' => $query ] ]
+                ]
+            ]
+        ]
+    ]
+  ];
 
 if ($aggFilterValue) {
-    $searchParams['body']['query']['filtered']['filter']['term'][$aggFilterField] = $aggFilterValue;
+    $searchParams['body']['query']['bool']['filter']['term'][$aggFilterField] = $aggFilterValue;
 }
 
 $searchParams['body']['aggs']['ram']['terms']['field'] = 'ram';
@@ -40,27 +50,27 @@ $results = $client->search($searchParams);
         </div>
 
         <dl>
-            <?php 
+            <?php
 
             echo('<dt>Ram</dt>');
             $aggs = $results['aggregations']['ram']['buckets'];
             for ($i = 0; $i < count($aggs); ++$i) {
                 $agg_result = $aggs[$i];
-                echo('<dd>' . "<a href='search_page.php?q={$query}&agg={$agg_result['key']}&agg_field=ram'>" . $agg_result['key'] . ' (' . $agg_result['doc_count'] .')' . '</a></dd>'); 
+                echo('<dd>' . "<a href='search_page.php?q={$query}&agg={$agg_result['key']}&agg_field=ram'>" . $agg_result['key'] . ' (' . $agg_result['doc_count'] .')' . '</a></dd>');
             }
 
             echo('<dt>Hard Drive</dt>');
             $aggs = $results['aggregations']['hard_drive']['buckets'];
             for ($i = 0; $i < count($aggs); ++$i) {
                 $agg_result = $aggs[$i];
-                echo('<dd>' . "<a href='search_page.php?q={$query}&agg={$agg_result['key']}&agg_field=hard_drive''>" . $agg_result['key'] . ' (' . $agg_result['doc_count'] .')' . '</a></dd>'); 
+                echo('<dd>' . "<a href='search_page.php?q={$query}&agg={$agg_result['key']}&agg_field=hard_drive''>" . $agg_result['key'] . ' (' . $agg_result['doc_count'] .')' . '</a></dd>');
             }
 
             echo('<dt>Cpu Core</dt>');
             $aggs = $results['aggregations']['core']['buckets'];
             for ($i = 0; $i < count($aggs); ++$i) {
                 $agg_result = $aggs[$i];
-                echo('<dd>' . "<a href='search_page.php?q={$query}&agg={$agg_result['key']}&agg_field=core'>" . $agg_result['key'] . ' (' . $agg_result['doc_count'] .')' . '</a></dd>'); 
+                echo('<dd>' . "<a href='search_page.php?q={$query}&agg={$agg_result['key']}&agg_field=core'>" . $agg_result['key'] . ' (' . $agg_result['doc_count'] .')' . '</a></dd>');
             }
 
             ?>

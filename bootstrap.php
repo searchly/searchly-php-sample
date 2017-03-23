@@ -2,22 +2,10 @@
 
 require 'vendor/autoload.php';
 
-$params = array();
-
-$params['hosts'] = array (
-    'http://balin-eu-west-1.searchly.com:80'
-);
-
-$params['connectionParams']['auth'] = array(
-    'site',
-    'key',
-    'Basic' 
-);
-$client = new Elasticsearch\Client($params);
-
-
-// Comment out for localhost 
-//$client = new Elasticsearch\Client();
-
-
+$hosts = [
+    'https://site:key@xyz.searchly.com'
+];
+$client = Elasticsearch\ClientBuilder::create()
+                    ->setHosts($hosts)
+                    ->build();
 ?>
