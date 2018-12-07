@@ -19,32 +19,28 @@ $mapping = array(
     ),
     'properties' => array(
         'title' => array(
-            'type' => 'string'
+            'type' => 'text'
         ),
         'price' => array(
             'type' => 'double'
         ),
         'cpu' => array(
-            'type' => 'string',
-            'index' => 'not_analyzed'
+            'type' => 'keyword'
         ),
         'core' => array(
         	'type' => 'integer'
         ),
         'ram' => array(
-        	'type' => 'string',
-        	'index' => 'not_analyzed'
+        	'type' => 'keyword'
         ),
         'hard_drive' => array(
-			'type' => 'string',
-        	'index' => 'not_analyzed'
+					'type' => 'keyword'
         ),
         'url' => array(
-			'type' => 'string',
-        	'index' => 'not_analyzed'
+					'type' => 'keyword'
         ),
         'brand' => array(
-			'type' => 'string'
+					'type' => 'text'
         )
     )
 );
@@ -85,7 +81,7 @@ $laptop2 = array(
 	"ram" => "12 GB",
 	"hard_drive" => "1 TB",
 	"brand" => "Asus",
-	"url" => "http://www.amazon.com/G750JM-DS71-17-3-inch-Gaming-GeForce-Graphics/dp/B00IKF2H12"	
+	"url" => "http://www.amazon.com/G750JM-DS71-17-3-inch-Gaming-GeForce-Graphics/dp/B00IKF2H12"
  	);
 
 // Document addition
